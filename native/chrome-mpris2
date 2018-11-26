@@ -346,6 +346,8 @@ class MediaPlayer2(DBusService):
             "xesam:url": "s",
             "xesam:title": "s",
             "xesam:artist": "as",
+            "xesam:albumArtist": "as",
+            "xesam:album": "s",
         }
 
         if "mpris:trackid" in metadata:
@@ -378,8 +380,8 @@ class MediaPlayer2(DBusService):
 
 
 @inheritdocstring
-class YouTube(MediaPlayer2):
-    def __init__(self, conn, name, tabid):
+class TabPlayer(MediaPlayer2):
+    def __init__(self, conn, name, tabid, source):
         super().__init__(conn, name, tabid)
 
         self.CanQuit = False
@@ -398,7 +400,7 @@ class YouTube(MediaPlayer2):
         self.Shuffle = False
         self.Volume = 1
 
-        self.Identity = "youtube"
+        self.Identity = source
         self.CanControl = True
         self.CanPlay = True
         self.CanPause = True
@@ -452,7 +454,7 @@ def main():
                 # unique names
                 name += ".tab%d" % tabid
 
-            player = YouTube(conn, name, tabid)
+            player = TabPlayer(conn, name, tabid, msg["source"])
             players[tabid] = player
 
         if msg["type"] == "quit":

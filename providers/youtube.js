@@ -293,25 +293,25 @@ port.onMessage.addListener(cmd => {
 
 function changed(newValues) {
     port.postMessage({
-        source: "youtube", type: "changed", args: [newValues],
+        source: "Youtube", type: "changed", args: [newValues],
     });
 }
 
 function seeked(position) {
     port.postMessage({
-        source: "youtube", type: "seeked", args: [position],
+        source: "Youtube", type: "seeked", args: [position],
     });
 }
 
 function methodReturn(method, args) {
     port.postMessage({
-        source: "youtube", type: "return", method, args,
+        source: "Youtube", type: "return", method, args,
     });
 }
 
 function quit() {
     port.postMessage({
-        source: "youtube", type: "quit",
+        source: "Youtube", type: "quit",
     });
 }
 
@@ -322,7 +322,7 @@ window.addEventListener("DOMContentLoaded", e => {
 
 // When navigating between YouTube pages of different types.
 // window.addEventListener("yt-page-type-changed", e => {
-//     console.log({source: "youtube", type: e.type, url: location.href});
+//     console.log({source: "Youtube", type: e.type, url: location.href});
 // });
 
 // When a YouTube page finished loading.

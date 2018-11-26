@@ -1,10 +1,8 @@
 {
   "manifest_version": 2,
-
-  "name": "browser-mpris2",
+  "name": "browser-playerctl",
   "description": "Implements the MPRIS2 interface for Chrome and Firefox",
   "version": "0.1",
-
   "background": {
     "scripts": ["background.js"],
     "persistent": false
@@ -14,9 +12,13 @@
       "matches": ["*://*.youtube.com/*", "*://youtube.com/*"],
       "js": ["jquery.min.js", "providers/youtube.js"],
       "run_at": "document_start"
+    },
+    {
+      "matches": ["*://*.play.google.com/*", "*://play.google.com/*"],
+      "js": ["jquery.min.js", "lodash.js", "providers/base.js", "providers/play-music.js"],
+      "run_at": "document_start"
     }
   ],
-
   "permissions": [
     "nativeMessaging"
   ]
