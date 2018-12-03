@@ -11,7 +11,7 @@ Supported Browsers:
 * Chromium
 
 ## Installation 
-1. Install [chrome extension](https://chrome.google.com/webstore/detail/browser-playerctl/ojjjidifjmbbckdjfiagdfdepbcmnicg/related)
+1. Install [chrome extension](https://chrome.google.com/webstore/detail/browser-playerctl/ojjjidifjmbbckdjfiagdfdepbcmnicg)
 2. `git clone https://github.com/beingmohit/browser-playerctl.git`
 3. `cd browser-playerctl`
 4. `./install.py`
