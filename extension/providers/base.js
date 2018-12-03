@@ -49,11 +49,33 @@ class MprisBase {
 
     set(callback, caller, key, value) {
         console.log('Mpris', 'set', arguments)
+
+        this[`set${key}`](callback);
     }
 
     getPosition(callback) {
         console.log('Mpris', 'getPosition', arguments)
         callback(0);
+    }
+
+    setRate(callback) {
+        console.log('Mpris', 'setRate', arguments)
+    }
+    
+    setVolume(callback) {
+        console.log('Mpris', 'setVolume', arguments)
+    }
+
+    setShuffle(callback) {
+        console.log('Mpris', 'setShuffle', arguments)
+    }
+
+    setLoopStatus(callback) {
+        console.log('Mpris', 'setLoopStatus', arguments)
+    }
+
+    setFullscreen(callback) {
+        console.log('Mpris', 'setFullscreen', arguments)
     }
 
     pause(callback) {

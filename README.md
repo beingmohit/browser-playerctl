@@ -1,16 +1,23 @@
 # browser-playerctl
-Implements the MPRIS2 interface for Chrome and Firefox.
+Implements [MPRIS](https://specifications.freedesktop.org/mpris-spec/latest/) interface for chrome, which allows you to control things like play/pause, next/previous, shuffle, etc from command line, allowing you to map keyword shortcuts. You can also fetch information of currently playing video/song and display in status bar for example. 
 
-Currently, the following sites are supported with almost all of the capabilities MPRIS2 allows:
+Supported Sites:
 * [YouTube](https://youtube.com)
 * [Google Play Music](https://play.google.com)
 * More comming soon!
 
-## Installation 
-1. First, in Chrome, go to `Tools > Extensions` (or `chrome://extensions`), enable `Developer mode` and `Load unpacked extension...` with the root of this repo.  Notice, the extension ID.
-2. Next, place [chrome-mpris2](native/chrome-mpris2) somewhere in your `$PATH` and run [install-chrome.py](native/install-chrome.py) giving it the extension ID and optionally the path (not just the directory) of your just-installed chrome-mpris2 (defaults to `~/bin/chrome-mpris2`).  This will check that you have all the dependencies and tell Chrome about chrome-mpris2 (so that the plugin can use it).
-3. ???
-4. Profit
+Supported Browsers:
+* Chrome
+* Chromium
 
-## Credits
-* Shamelessly copied and extended from [browser-mpris2](https://github.com/otommod/browser-mpris2) 
+## Installation 
+1. Install [chrome extension](https://chrome.google.com/webstore/detail/browser-playerctl/ojjjidifjmbbckdjfiagdfdepbcmnicg/related)
+2. `git clone https://github.com/beingmohit/browser-playerctl.git`
+3. `cd browser-playerctl`
+4. `./install.py`
+
+## Use
+After following above installation instructions, you can use any MPRIS2 controller/tool/library, some examples:
+* Command line: [playerctl](https://github.com/acrisci/playerctl)
+* Command line: [mpris-ctl](https://github.com/mariusor/mpris-ctl)
+* i3wm status bar: [py3status mpris module](https://github.com/ultrabug/py3status) 

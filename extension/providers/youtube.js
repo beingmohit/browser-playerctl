@@ -144,6 +144,8 @@ function enterVideo() {
 
     video.Rate = videoElement.playbackRate;
 
+    console.log('video', video);
+    
     changed(video);
 }
 

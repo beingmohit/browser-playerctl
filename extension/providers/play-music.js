@@ -12,12 +12,36 @@ class PlayMusic extends MprisBase {
     }
 
     getPosition(callback) {
-        console.log('Mpris', 'getPosition', arguments)
+        console.log('PlayMusic', 'getPosition', arguments)
 
         if (!$('#time_container_current').length)
             return callback(0);
 
         callback(this.microSeconds($('#time_container_current').text()));
+    }
+
+    setRate(callback) {
+        // Not supported 
+    }
+
+    setVolume(callback) {
+        
+    }
+
+    setShuffle(callback, value) {
+        if (value && $('[aria-label="Shuffle songs"]').length)
+            $('[aria-label="Shuffle songs"]').click();
+
+        if (!value && !$('[aria-label="Turn off shuffle songs"]').length)
+            $('[aria-label="Turn off shuffle songs"]').click();
+    }
+
+    setLoopStatus(callback, value) {
+
+    }
+
+    setFullscreen(callback) {
+        // Not supported 
     }
 
     next(callback) {
@@ -125,7 +149,7 @@ class PlayMusic extends MprisBase {
             return 0;
 
         position = parseInt(position[0]) * 60 + parseInt(position[1])
-        position = position * 1000
+        position = position * 1e6
         return position
     }
 }
