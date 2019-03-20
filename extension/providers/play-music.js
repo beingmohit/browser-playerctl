@@ -139,7 +139,10 @@ class PlayMusic extends MprisBase {
             this.media.Metadata["mpris:length"] = this.microSeconds($('#time_container_duration').text())
         }
 
-        this.changed(this.media)
+        if(! _.isEqual(this.oldMedia, this.media)){
+            this.oldMedia = _.cloneDeep(this.media);
+            this.changed(this.media)
+        }
     }
 
     microSeconds(position) {

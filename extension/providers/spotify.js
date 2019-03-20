@@ -164,12 +164,14 @@ class Spotify extends MprisBase {
             this.media.Metadata["xesam:artist"] = [$('.track-info__artists').first().text()]
             this.media.Metadata["xesam:albumArtist"] = [$('.track-info__artists').first().text()]
         }
-
         if ($('.playback-bar__progress-time').length) {
-            this.media.Metadata["mpris:length"] = this.microSeconds($('.playback-bar__progress-time').first().text())
+            this.media.Metadata["mpris:length"] = this.microSeconds($('.playback-bar__progress-time:eq(1)').text())
         }
 
-        this.changed(this.media)
+        if(! _.isEqual(this.oldMedia, this.media)){
+            this.oldMedia = _.cloneDeep(this.media);
+            this.changed(this.media)
+        }
     }
 
     microSeconds(position) {
