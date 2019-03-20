@@ -1,18 +1,19 @@
 class Spotify extends MprisBase {
     constructor() {
         console.log('Spotify', 'constructor')
+
         super('Spotify');
     }
 
     init() {
         console.log('Spotify', 'init')
-        this.update()
 
+        this.update()
         setInterval(() => this.update(), 2000)
     }
 
     getPosition(callback) {
-        console.log('PlayMusic', 'getPosition', arguments)
+        console.log('Spotify', 'getPosition', arguments)
 
         if (!$('.playback-bar__progress-time').length)
             return callback(0);
@@ -25,18 +26,46 @@ class Spotify extends MprisBase {
     }
 
     setVolume(callback) {
-
+        // Not supported
     }
 
     setShuffle(callback, value) {
-        // if (value && $('[aria-label="Shuffle songs"]').length)
-        //     $('[aria-label="Shuffle songs"]').click();
+        console.log('Spotify', 'setShuffle', value, arguments)
 
-        // if (!value && !$('[aria-label="Turn off shuffle songs"]').length)
-        //     $('[aria-label="Turn off shuffle songs"]').click();
+        if (value && $('[title="Enable shuffle"]'))
+            $('[title="Enable shuffle"]').first().click();
+
+        if (! value && $('[title="Disable shuffle"]'))
+            $('[title="Disable shuffle"]').first().click();
     }
 
     setLoopStatus(callback, value) {
+        console.log('Spotify', 'setLoop', value, arguments)   
+        
+        // to repeat single track, doulbe click suffle: only when suffle is disabled
+        if (value === 'Playlist' && $('[title="Disable repeat"]')){
+            $('[title="Disable repeat"]').click();
+            setTimeout(() =>  $('[title="Enable repeat"]').click(), 750);
+        }
+        else if ((value === 'Playlist') && $('[title="Enable repeat"]')){
+            $('[title="Enable repeat"]').click();
+        }
+
+        if ((value === 'Track') && $('[title="Enable repeat"]')){
+            $('[title="Enable repeat"]').click();
+            setTimeout(() =>  $('[title="Enable repeat one"]').click(), 750);
+        }
+        else if (value === 'Track' && $('[title="Enable repeat one"]')){
+            $('[title="Enable repeat one"]').click();
+        }
+
+        if (value === 'None' && $('[title="Enable repeat one"]')){
+            $('[title="Enable repeat one"]').click();
+            setTimeout(() =>  $('[title="Disable repeat"]').click(), 750);
+        }
+        else if (value === 'None' && $('[title="Disable repeat"]')){
+            $('[title="Disable repeat"]').click();
+        }
 
     }
 
@@ -45,7 +74,7 @@ class Spotify extends MprisBase {
     }
 
     next(callback) {
-        console.log('PlayMusic', 'next', arguments)
+        console.log('Spotify', 'next', arguments)
 
         if ($('[title="Next"]').length)
             $('[title="Next"]').first().click()
@@ -55,7 +84,7 @@ class Spotify extends MprisBase {
     }
 
     previous(callback) {
-        console.log('PlayMusic', 'previous', arguments)
+        console.log('Spotify', 'previous', arguments)
 
         if ($('[title="Previous"]').length)
             $('[title="Previous"]').first().click()
@@ -65,7 +94,7 @@ class Spotify extends MprisBase {
     }
 
     playPause(callback) {
-        console.log('PlayMusic', 'playPause', arguments)
+        console.log('Spotify', 'playPause', arguments)
 
         if ($('[title="Pause"]').length)
             $('[title="Pause"]').first().click()
@@ -78,7 +107,7 @@ class Spotify extends MprisBase {
     }
 
     pause(callback) {
-        console.log('PlayMusic', 'pause', arguments)
+        console.log('Spotify', 'pause', arguments)
 
         if ($('[title="Pause"]').length)
             $('[title="Pause"]').first().click()
@@ -88,7 +117,7 @@ class Spotify extends MprisBase {
     }
 
     play(callback) {
-        console.log('PlayMusic', 'play', arguments)
+        console.log('Spotify', 'play', arguments)
 
         if ($('[title="Play"]').length)
             $('[title="Play"]').first().click()
@@ -163,7 +192,7 @@ var spotify = new Spotify()
 
 var checkExist = setInterval(function() {
     $(window).on("load", function(){
-       //console.log('Spotify', 'checkExist', arguments)
+       console.log('Spotify', 'checkExist', arguments)
        clearInterval(checkExist);
        spotify.init()
     });

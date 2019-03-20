@@ -50,7 +50,7 @@ class MprisBase {
     set(callback, caller, key, value) {
         console.log('Mpris', 'set', arguments)
 
-        this[`set${key}`](callback);
+        this[`set${key}`](callback, value);
     }
 
     getPosition(callback) {
