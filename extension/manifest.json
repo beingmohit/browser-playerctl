@@ -17,6 +17,11 @@
       "matches": ["*://*.play.google.com/*", "*://play.google.com/*"],
       "js": ["jquery.min.js", "lodash.js", "providers/base.js", "providers/play-music.js"],
       "run_at": "document_start"
+    },
+    {
+      "matches": ["*://*.open.spotify.com/*", "*://open.spotify.com/*"],
+      "js": ["jquery.min.js", "lodash.js", "providers/base.js", "providers/spotify.js"],
+      "run_at": "document_start"
     }
   ],
   "permissions": [

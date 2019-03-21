@@ -1,27 +1,29 @@
+class Media {
+    Metadata = {
+        "mpris:trackid": undefined,
+        "mpris:artUrl": undefined,
+        "mpris:length": undefined,
+        "xesam:url": location.href,
+        "xesam:title": $("title").text().slice(0, -10),
+    }
+    PlaybackStatus = "Stopped"
+    LoopStatus = undefined
+    Shuffle = undefined
+    Volume = undefined
+    CanGoNext = undefined
+    CanGoPrevious = undefined
+    Rate = undefined
+    Fullscreen = undefined
+    Position = undefined
+}
+
 class MprisBase {
     constructor(source) {
         console.log('Mpris', 'constructor', arguments)
 
         this.source = source
-
-        this.media = {
-            Metadata: {
-                "mpris:trackid": undefined,
-                "mpris:artUrl": undefined,
-                "mpris:length": undefined,
-                "xesam:url": location.href,
-                "xesam:title": $("title").text().slice(0, -10),
-            },
-            PlaybackStatus: "Stopped",
-            LoopStatus: undefined,
-            Shuffle: undefined,
-            Volume: undefined,
-            CanGoNext: undefined,
-            CanGoPrevious: undefined,
-            Rate: undefined,
-            Fullscreen: undefined,
-            Position: undefined
-        }
+        this.media = new Media()
+        this.oldMedia = new Media()
 
         this.port = chrome.runtime.connect()
 
@@ -50,7 +52,7 @@ class MprisBase {
     set(callback, caller, key, value) {
         console.log('Mpris', 'set', arguments)
 
-        this[`set${key}`](callback);
+        this[`set${key}`](callback, value);
     }
 
     getPosition(callback) {
