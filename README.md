@@ -1,7 +1,5 @@
 # browser-playerctl
 
-(A port of https://github.com/otommod/browser-mpris2)
-
 Implements [MPRIS](https://specifications.freedesktop.org/mpris-spec/latest/) interface for chrome, which allows you to control things like play/pause, next/previous, shuffle, etc from command line, allowing you to map keyword shortcuts. You can also fetch information of currently playing video/song and display in status bar for example. 
 
 Supported Sites:
@@ -25,3 +23,6 @@ After following above installation instructions, you can use any MPRIS2 controll
 * Command line: [playerctl](https://github.com/acrisci/playerctl)
 * Command line: [mpris-ctl](https://github.com/mariusor/mpris-ctl)
 * i3wm status bar: [py3status mpris module](https://github.com/ultrabug/py3status) 
+
+## Credits
+Fork of https://github.com/otommod/browser-mpris2
