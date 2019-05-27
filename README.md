@@ -4,6 +4,7 @@ Implements [MPRIS](https://specifications.freedesktop.org/mpris-spec/latest/) in
 
 Supported Sites:
 * [YouTube](https://youtube.com)
+* [YouTube Music](https://music.youtube.com)
 * [Google Play Music](https://play.google.com)
 * [Spotify Web Player](https://www.spotify.com/in)
 * More comming soon!
