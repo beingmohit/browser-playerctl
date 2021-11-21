@@ -10,6 +10,7 @@ Supported Sites:
 * More comming soon!
 
 Supported Browsers:
+* Brave
 * Chrome
 * Chromium
 
