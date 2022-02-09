@@ -11,6 +11,8 @@ BROWSERS = [
     os.path.join(XDG_CONFIG_HOME, "chromium"),
     os.path.join(XDG_CONFIG_HOME, "google-chrome"),
     os.path.join(os.path.join(XDG_CONFIG_HOME, "BraveSoftware"), "Brave-Browser"),
+    os.path.join(XDG_CONFIG_HOME, "microsoft-edge"),
+    os.path.join(XDG_CONFIG_HOME, "vivaldi"),
 ]
 
 
