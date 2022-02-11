@@ -7,7 +7,8 @@ Supported Sites:
 * [YouTube Music](https://music.youtube.com)
 * [Google Play Music](https://play.google.com)
 * [Spotify Web Player](https://www.spotify.com/in)
-* More comming soon!
+* [Soundcloud](https://soundcloud.com)
+* More coming soon!
 
 Supported Browsers:
 * Brave
