@@ -15,21 +15,44 @@
     },
     {
       "matches": ["*://*.play.google.com/*", "*://play.google.com/*"],
-      "js": ["jquery.min.js", "lodash.js", "providers/base.js", "providers/play-music.js"],
+      "js": [
+        "jquery.min.js",
+        "lodash.js",
+        "providers/base.js",
+        "providers/play-music.js"
+      ],
       "run_at": "document_start"
     },
     {
       "matches": ["*://*.open.spotify.com/*", "*://open.spotify.com/*"],
-      "js": ["jquery.min.js", "lodash.js", "providers/base.js", "providers/spotify.js"],
+      "js": [
+        "jquery.min.js",
+        "lodash.js",
+        "providers/base.js",
+        "providers/spotify.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["*://*.soundcloud.com/*", "*://soundcloud.com/*"],
+      "js": [
+        "jquery.min.js",
+        "lodash.js",
+        "providers/base.js",
+        "providers/soundcloud.js"
+      ],
       "run_at": "document_start"
     },
     {
       "matches": ["*://*.music.youtube.com/*", "*://music.youtube.com/*"],
-      "js": ["jquery.min.js", "lodash.js", "providers/base.js", "providers/youtube-music.js"],
+      "js": [
+        "jquery.min.js",
+        "lodash.js",
+        "providers/base.js",
+        "providers/youtube-music.js"
+      ],
       "run_at": "document_start"
     }
   ],
-  "permissions": [
-    "nativeMessaging"
-  ]
+  "permissions": ["nativeMessaging"]
 }
